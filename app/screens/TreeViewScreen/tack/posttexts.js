@@ -41,6 +41,18 @@ module.exports = [
         imgUrl: 'img/budapest-captainbudapest.jpg',
         title: 'BUDAPEST, HUNGARY',
         description: 'Split in two by the Danube River, Budapest is the result of the merging of three cities.'
+    },
+    {
+        postId: 8,
+        imgUrl: 'img/paris-wallpapers-paris.jpg',
+        title: 'PARIS, FRANCE',
+        description: 'The Seine and the bridges that cross it, the grand boulevards, the monumental squares, the magnificent monuments, the charming streets of Montmartre — these images of Paris confirm that it is indeed the most elegant and sophisticated of all cities. '
+    },
+    {
+        postId: 9,
+        imgUrl: 'img/bruges-meteoweb.jpg',
+        title: 'BRUGES, BELGIUM',
+        description: 'It’s a small city, in a small country, hardly a metropolis, but huge on beauty. It’s one of the world’s best preserved medieval cities, filled with gothic and baroque monuments surrounded by an oval canal and extraordinarily romantic cobbled lanes.'
     }
 
 ];

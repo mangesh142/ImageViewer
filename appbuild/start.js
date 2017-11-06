@@ -45,9 +45,9 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
-	__webpack_require__(178);
-	__webpack_require__(180);
-	module.exports = __webpack_require__(181);
+	__webpack_require__(175);
+	__webpack_require__(177);
+	module.exports = __webpack_require__(178);
 
 
 /***/ },
@@ -56,8 +56,8 @@
 
 	var React = __webpack_require__(2);
 	var MainViewController = __webpack_require__(158);
-	var MainViewStore = __webpack_require__(169);
-	var MainViewAction = __webpack_require__(177);
+	var MainViewStore = __webpack_require__(166);
+	var MainViewAction = __webpack_require__(174);
 	
 	React.render(React.createElement(MainViewController, {store: MainViewStore, action: MainViewAction}),
 	                document.getElementById('container1'));
@@ -20756,7 +20756,7 @@
 	 */
 	var React = __webpack_require__(2);
 	var Leftcoll = __webpack_require__(162);
-	var Centercoll = __webpack_require__(166);
+	var Centercoll = __webpack_require__(163);
 	
 	var Container = React.createClass({displayName: "Container",
 	
@@ -20780,8 +20780,6 @@
 	 * Created by CS99 on 07/03/2017.
 	 */
 	var React = __webpack_require__(2);
-	var User = __webpack_require__(163);
-	var Rows = __webpack_require__(164);
 	var Leftcoll = React.createClass({displayName: "Leftcoll",
 	
 	    render: function () {
@@ -20826,80 +20824,8 @@
 	 * Created by CS99 on 07/03/2017.
 	 */
 	var React = __webpack_require__(2);
-	
-	var User = React.createClass({displayName: "User",
-	
-	    render: function () {
-	        return (
-	            React.createElement("div", {className: "user"}, 
-	                React.createElement("a", {href: "#"}, 
-	                    React.createElement("img", {src: "img/profile-head.jpg"}), 
-	                    React.createElement("span", null, "Mangesh Darekar")
-	                )
-	            )
-	        );
-	    }
-	});
-	
-	module.exports = User;
-
-/***/ },
-/* 164 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Created by CS99 on 07/03/2017.
-	 */
-	var React = __webpack_require__(2);
-	var Content = __webpack_require__(165);
-	
-	var Rows = React.createClass({displayName: "Rows",
-	
-	    render: function () {
-	        return (
-	            React.createElement("div", {className: "row2"}, 
-	                React.createElement(Content, null), 
-	                React.createElement(Content, null)
-	            )
-	        );
-	    }
-	});
-	module.exports = Rows;
-
-/***/ },
-/* 165 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Created by CS99 on 07/03/2017.
-	 */
-	var React = __webpack_require__(2);
-	
-	var Content = React.createClass({displayName: "Content",
-	
-	    render: function () {
-	        return (
-	            React.createElement("div", {className: "news"}, 
-	                React.createElement("a", {href: "#"}, 
-	                    React.createElement("img", {src: "img/fbql-news.png"}), 
-	                    React.createElement("span", null, "News Feed ")
-	                )
-	            )
-	        );
-	    }
-	});
-	module.exports = Content;
-
-/***/ },
-/* 166 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Created by CS99 on 07/03/2017.
-	 */
-	var React = __webpack_require__(2);
-	var AllContents = __webpack_require__(167).view;
-	var AllMaximizeContainer = __webpack_require__(168);
+	var AllContents = __webpack_require__(164).view;
+	var AllMaximizeContainer = __webpack_require__(165);
 	
 	var Centercoll = React.createClass({displayName: "Centercoll",
 	
@@ -20933,7 +20859,7 @@
 	module.exports = Centercoll;
 
 /***/ },
-/* 167 */
+/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20977,7 +20903,7 @@
 	};
 
 /***/ },
-/* 168 */
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(2);
@@ -20987,57 +20913,51 @@
 	  HANDLE_ALL_CONTENT_POST_CLICKED: 'handle_all_content_post_clicked'
 	};
 	
+	
 	var AllMaximizeContainer = React.createClass({displayName: "AllMaximizeContainer",
 	  handelPostClick: function (iPostId) {
-	    console.log("jshkdhajskda::::: ");
-	    console.log(iPostId);
 	    EventBus.dispatch(oEvents.HANDLE_ALL_CONTENT_POST_CLICKED, this, iPostId);
 	  },
 	
 	  getAllContentsView: function () {
 	    var aPosts = this.props.data;
 	    var iViewId = this.props.viewId;
-	      var aPostsView = [];
-	      for (var iIndex = 0; iIndex < aPosts.length; iIndex++) {
-	        var oPost = aPosts[iIndex];
-	        if(oPost.postId !=iViewId) {
-	          aPostsView.push(
-	              React.createElement("div", {className: "suggestedContent", onClick: this.handelPostClick.bind(this, oPost.postId)}, 
-	                React.createElement("div", {className: "contentImg"}, 
-	                  React.createElement("img", {src: oPost.imgUrl})
-	
-	                ), 
-	                React.createElement("div", {className: "content"}, 
-	                  React.createElement("div", {className: "title"}, 
-	                    React.createElement("span", null, oPost.title)
-	                  ), 
-	                  React.createElement("br", null), 
-	                  React.createElement("div", {className: "description"}, 
-	                    React.createElement("span", null, " ", oPost.description)
-	                  )
-	                )
-	              )
-	          )
-	        }
-	    }
-	    return aPostsView;
-	  },
-	
-	  getViewData: function () {
-	    var aPosts = this.props.data;
-	    var iViewId = this.props.viewId;
+	    var aPostsView = [];
 	    var oPostData;
+	
 	    for (var iIndex = 0; iIndex < aPosts.length; iIndex++) {
 	      var oPost = aPosts[iIndex];
-	      if(oPost.postId == iViewId){
+	      if (oPost.postId != iViewId) {
+	        aPostsView.push(
+	            React.createElement("div", {className: "suggestedContent", onClick: this.handelPostClick.bind(this, oPost.postId)}, 
+	              React.createElement("div", {className: "contentImg"}, 
+	                React.createElement("img", {src: oPost.imgUrl})
+	
+	              ), 
+	              React.createElement("div", {className: "content"}, 
+	                React.createElement("div", {className: "title"}, 
+	                  React.createElement("span", null, oPost.title)
+	                ), 
+	                React.createElement("br", null), 
+	                React.createElement("div", {className: "description"}, 
+	                  React.createElement("span", null, " ", oPost.description)
+	                )
+	              )
+	            )
+	        )
+	      }
+	      else {
 	        oPostData = oPost;
 	      }
 	    }
-	    return oPostData;
+	    return {
+	      suggestedContent: aPostsView,
+	      maximizeView: oPostData
+	    };
 	  },
 	
 	  render: function () {
-	    var oViewData = this.getViewData();
+	    var oViewData = this.getAllContentsView().maximizeView;
 	    return (
 	        React.createElement("div", {className: "allMaxmizeContent"}, 
 	          React.createElement("div", {className: "maximizeContainer"}, 
@@ -21048,13 +20968,14 @@
 	            React.createElement("div", {className: "title"}, 
 	              React.createElement("span", null, oViewData.title)
 	            ), 
+	
 	            React.createElement("div", {className: "description"}, 
 	              React.createElement("span", null, " ", oViewData.description)
 	            )
 	          ), 
 	
 	          React.createElement("div", {className: "suggestions"}, 
-	            this.getAllContentsView()
+	            this.getAllContentsView().suggestedContent
 	          )
 	        )
 	    );
@@ -21063,14 +20984,14 @@
 	module.exports = AllMaximizeContainer;
 
 /***/ },
-/* 169 */
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _ = __webpack_require__(170);
+	var _ = __webpack_require__(167);
 	
-	var MicroEvent = __webpack_require__(172);
-	var MainViewProps = __webpack_require__(173);
-	var AppData = __webpack_require__(174);
+	var MicroEvent = __webpack_require__(169);
+	var MainViewProps = __webpack_require__(170);
+	var AppData = __webpack_require__(171);
 	
 	
 	var TreeViewStore = (function () {
@@ -21132,7 +21053,7 @@
 	module.exports = TreeViewStore;
 
 /***/ },
-/* 170 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module, global) {/**
@@ -33487,10 +33408,10 @@
 	  }
 	}.call(this));
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(171)(module), (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(168)(module), (function() { return this; }())))
 
 /***/ },
-/* 171 */
+/* 168 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -33506,7 +33427,7 @@
 
 
 /***/ },
-/* 172 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {/**
@@ -33565,10 +33486,10 @@
 	if (typeof module !== "undefined" && ('exports' in module)) {
 	    module.exports = MicroEvent;
 	}
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(171)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(168)(module)))
 
 /***/ },
-/* 173 */
+/* 170 */
 /***/ function(module, exports) {
 
 	var TreeViewProps = (function () {
@@ -33607,11 +33528,11 @@
 	module.exports = TreeViewProps;
 
 /***/ },
-/* 174 */
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var MockDataForView = __webpack_require__(175);
-	var MockDataFarPosts = __webpack_require__(176);
+	var MockDataForView = __webpack_require__(172);
+	var MockDataFarPosts = __webpack_require__(173);
 	
 	var TreeViewAppData = (function () {
 	
@@ -33635,7 +33556,7 @@
 	module.exports = TreeViewAppData;
 
 /***/ },
-/* 175 */
+/* 172 */
 /***/ function(module, exports) {
 
 	var MockDataForTreeView = [{
@@ -33650,7 +33571,7 @@
 	module.exports = MockDataForTreeView;
 
 /***/ },
-/* 176 */
+/* 173 */
 /***/ function(module, exports) {
 
 	module.exports = [
@@ -33696,19 +33617,31 @@
 	        imgUrl: 'img/budapest-captainbudapest.jpg',
 	        title: 'BUDAPEST, HUNGARY',
 	        description: 'Split in two by the Danube River, Budapest is the result of the merging of three cities.'
+	    },
+	    {
+	        postId: 8,
+	        imgUrl: 'img/paris-wallpapers-paris.jpg',
+	        title: 'PARIS, FRANCE',
+	        description: 'The Seine and the bridges that cross it, the grand boulevards, the monumental squares, the magnificent monuments, the charming streets of Montmartre — these images of Paris confirm that it is indeed the most elegant and sophisticated of all cities. '
+	    },
+	    {
+	        postId: 9,
+	        imgUrl: 'img/bruges-meteoweb.jpg',
+	        title: 'BRUGES, BELGIUM',
+	        description: 'It’s a small city, in a small country, hardly a metropolis, but huge on beauty. It’s one of the world’s best preserved medieval cities, filled with gothic and baroque monuments surrounded by an oval canal and extraordinarily romantic cobbled lanes.'
 	    }
 	
 	];
 
 /***/ },
-/* 177 */
+/* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var eventBus = __webpack_require__(160);
-	var AllContentEvent = __webpack_require__(167).events;
+	var AllContentEvent = __webpack_require__(164).events;
 	var HeaderEvent = __webpack_require__(159).events;
 	
-	var MainViewStore = __webpack_require__(169);
+	var MainViewStore = __webpack_require__(166);
 	
 	
 	var TreeViewAction = (function () {
@@ -33739,20 +33672,20 @@
 	module.exports = TreeViewAction;
 
 /***/ },
+/* 175 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 176 */,
+/* 177 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
 /* 178 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-/* 179 */,
-/* 180 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-/* 181 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

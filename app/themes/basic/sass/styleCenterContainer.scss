@@ -19,7 +19,7 @@
 
     background-color: #ffffff;
     margin: 0px;
-    height: 150px;
+    height: auto;
     margin-bottom: 4px;
 }
 #posthead {
@@ -28,8 +28,9 @@
 #center-coll .centerCollCls .contentImg {
     width: 30%;
     float: left;
-    margin-top: 13px;
+    margin-top: 10px;
     margin-left: 15px;
+    margin-bottom: 10px;
     overflow: hidden;
 }
 
