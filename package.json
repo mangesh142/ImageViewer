@@ -23,6 +23,7 @@
   "devDependencies": {
     "css-loader": "^0.14.5",
     "extract-text-webpack-plugin": "^0.8.2",
+    "babel-plugin-transform-class-properties": "6.24.1",
     "file-loader": "^0.8.4",
     "gulp": "^3.9.0",
     "gulp-uglify": "^1.2.0",
