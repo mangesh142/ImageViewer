@@ -4,8 +4,21 @@
   "main": "start.js",
   "dependencies": {
     "lodash": "^3.9.3",
-    "react": "^0.13.3",
-    "react-addons": "^0.9.1-deprecated"
+    "react": "15.6.2",
+    "react-addons": "0.9.0",
+    "react-addons-perf": "15.4.2",
+    "react-bootstrap": "0.31.3",
+    "react-chartjs-2": "2.6.4",
+    "react-dom": "15.6.2",
+    "react-grid-layout": "0.16.0",
+    "react-height": "3.0.0",
+    "react-image-gallery": "0.8.3",
+    "react-input-autosize": "2.0.1",
+    "react-masonry-component": "6.0.0",
+    "react-swipeable": "4.1.0",
+    "react-tab-view": "1.0.5",
+    "react-tap-event-plugin": "2.0.1",
+    "require-all": "2.2.0"
   },
   "devDependencies": {
     "css-loader": "^0.14.5",

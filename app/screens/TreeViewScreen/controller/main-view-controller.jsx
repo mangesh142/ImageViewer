@@ -1,75 +1,81 @@
-var React = require('react');
+const React = require('react');
 
-var Header = require('../view/Header').view;
-var Container = require('../view/Container');
+const Header = require('../view/Header').view;
+const Container = require('../view/Container');
 
-var MainViewController = React.createClass({
+const oPropTypes = {
+  store: React.PropTypes.object.isRequired,
+  action: React.PropTypes.object.isRequired
+};
 
-  propTypes: {
-    store: React.PropTypes.object.isRequired,
-    action: React.PropTypes.object.isRequired
-  },
+class MainViewController extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+        appData: this.getStore().getData().appData,
+        componentProps: this.getStore().getData().componentProps,
+    };
+    this.getStore = this.getStore.bind(this);
+    this.handleTreeViewStateChanged = this.handleTreeViewStateChanged.bind(this);
+  }
 
-  getInitialState: function () {
+  /*getInitialState () {
 
     var initialState = {
       appData: this.getStore().getData().appData,
       componentProps: this.getStore().getData().componentProps,
     };
-
     return initialState;
-
-  },
+  };*/
 
   //@Bind: Store with state
-  componentDidMount: function () {
+  componentDidMount () {
     this.getStore().bind('change', this.handleTreeViewStateChanged);
     this.props.action.registerEvent();
-  },
+  };
 
-  componentDidUpdate: function () {
-  },
+  componentDidUpdate () {
+  };
 
-  componentWillMount: function () {
-    var aMockDataForPost = this.state.appData.getMockDataForPosts();
+  componentWillMount () {
+    let aMockDataForPost = this.state.appData.getMockDataForPosts();
     this.getStore().fetchGlobalData(aMockDataForPost);
-  },
+  };
 
   //@UnBind: store with state
-  componentWillUnmount: function () {
+  componentWillUnmount () {
     this.getStore().unbind('change', this.handleTreeViewStateChanged);
     this.props.action.deRegisterEvent();
-  },
+  };
 
   //@set: state
-  handleTreeViewStateChanged: function () {
-
-    var changedState = {
+  handleTreeViewStateChanged () {
+    let changedState = {
       appData: this.getStore().getData().appData,
       componentProps: this.getStore().getData().componentProps
     };
 
     this.setState(changedState);
-  },
+  };
 
-  getStore: function () {
+  getStore () {
     return this.props.store;
-  },
+  };
 
-  render: function () {
-
-    var oComponentProps = this.state.componentProps;
-    var bViewFlag = oComponentProps.getFlag();
-    var iViewId = oComponentProps.getViewId();
-    var aPostData = oComponentProps.getPostData();
+  render () {
+    let oComponentProps = this.state.componentProps;
+    let bViewFlag = oComponentProps.getFlag();
+    let iViewId = oComponentProps.getViewId();
+    let aPostData = oComponentProps.getPostData();
 
     return (
         <div>
           <Header />
-          <Container posts={aPostData} viewId = {iViewId} viewFlag = {bViewFlag}/>
+          <Container posts={aPostData} viewId={iViewId} viewFlag={bViewFlag}/>
         </div>
     );
-  }
-});
+  };
+}
 
+MainViewController.propTypes = oPropTypes;
 module.exports = MainViewController;
